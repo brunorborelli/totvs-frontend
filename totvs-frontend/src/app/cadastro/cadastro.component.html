@@ -1,19 +1,22 @@
+
 <po-page-default p-title="Cadastro de Cliente">
-  <form #cadastroForm="ngForm" (ngSubmit)="cadastrar()">
+  <form #cadastroForm="ngForm" (ngSubmit)="cadastrar()" class="form-container">
     <po-input
       name="nome"
       p-label="Nome"
       [(ngModel)]="cliente.nome"
       required
+      class="form-field"
     ></po-input>
     
-    <po-divider p-label="Endereço"></po-divider>
+    <po-divider p-label="Endereço" class="divider-margin"></po-divider>
     
     <po-input
       name="logradouro"
       p-label="Logradouro"
       [(ngModel)]="cliente.endereco.logradouro"
       required
+      class="form-field"
     ></po-input>
     
     <po-input
@@ -21,6 +24,7 @@
       p-label="Bairro"
       [(ngModel)]="cliente.endereco.bairro"
       required
+      class="form-field"
     ></po-input>
     
     <po-input
@@ -28,6 +32,7 @@
       p-label="Número"
       [(ngModel)]="cliente.endereco.numero"
       required
+      class="form-field"
     ></po-input>
     
     <po-input
@@ -35,6 +40,7 @@
       p-label="Cidade"
       [(ngModel)]="cliente.endereco.cidade"
       required
+      class="form-field"
     ></po-input>
     
     <po-input
@@ -42,17 +48,19 @@
       p-label="Estado"
       [(ngModel)]="cliente.endereco.estado"
       required
+      class="form-field"
     ></po-input>
     
-    <po-divider p-label="Telefones"></po-divider>
+    <po-divider p-label="Telefones" class="divider-margin"></po-divider>
     
-    <po-container>
-      <div *ngFor="let telefone of cliente.telefones; let i = index">
+    <po-container class="phone-container">
+      <div *ngFor="let telefone of cliente.telefones; let i = index" class="phone-row">
         <po-input
           name="telefone{{i}}"
           p-label="Telefone"
           [(ngModel)]="telefone.telefone"
           required
+          class="form-field"
         ></po-input>
         
         <po-button

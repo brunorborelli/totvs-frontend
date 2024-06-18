@@ -1,12 +1,26 @@
-.po-container {
-    padding: 16px;
+.form-container {
+    max-width: 600px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    margin-left: 20px; 
   }
   
-  .po-fieldset {
-    margin-bottom: 16px;
+  
+  .form-field {
+    margin-bottom: 10px; 
   }
   
-  .po-fieldset > * {
-    margin-bottom: 8px;
+  .divider-margin {
+    margin-top: 20px; 
+  }
+  
+  .phone-container {
+    margin-top: 20px; 
+  }
+  
+  .phone-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; 
   }
   
