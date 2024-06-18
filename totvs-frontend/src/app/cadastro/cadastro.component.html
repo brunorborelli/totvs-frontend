@@ -1,0 +1,36 @@
+<div class="po-container">
+    <po-page-default p-title="Cadastro de Usuário">
+      <form #cadastroForm="ngForm">
+        <po-input
+          name="nome"
+          [(ngModel)]="usuario.nome"
+          p-label="Nome"
+          p-required
+          p-placeholder="Digite seu nome"
+        ></po-input>
+  
+        <po-input
+          name="endereco"
+          [(ngModel)]="usuario.endereco"
+          p-label="Endereço"
+          p-required
+          p-placeholder="Digite seu endereço"
+        ></po-input>
+  
+        <po-input
+          name="telefone"
+          [(ngModel)]="usuario.telefone"
+          p-label="Telefone"
+          p-required
+          p-placeholder="Digite seu telefone"
+        ></po-input>
+  
+        <po-button
+          p-label="Cadastrar"
+          p-type="submit"
+          (p-click)="cadastrar()"
+        ></po-button>
+      </form>
+    </po-page-default>
+  </div>
+  
