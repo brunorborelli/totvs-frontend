@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { PoPageModule, PoFieldModule, PoButtonModule } from '@po-ui/ng-components';
+import { PoPageModule, PoFieldModule, PoButtonModule, PoContainerModule, PoDividerModule } from '@po-ui/ng-components';
 import { ClienteService } from '../cliente.service'; 
 
 @Component({
@@ -14,7 +14,9 @@ import { ClienteService } from '../cliente.service';
     FormsModule,
     PoPageModule,
     PoFieldModule,
-    PoButtonModule
+    PoButtonModule,
+    PoContainerModule,
+    PoDividerModule
   ]
 })
 export class CadastroComponent {

@@ -1,83 +1,81 @@
-<div class="po-container">
-  <po-page-default p-title="Cadastro de Cliente">
-    <form #cadastroForm="ngForm">
-      <po-input
-        name="nome"
-        [(ngModel)]="cliente.nome"
-        p-label="Nome"
-        p-required
-        p-placeholder="Digite seu nome"
-      ></po-input>
-
-      <div class="po-fieldset" p-title="Endereço">
+<po-page-default p-title="Cadastro de Cliente">
+  <form #cadastroForm="ngForm" (ngSubmit)="cadastrar()">
+    <po-input
+      name="nome"
+      p-label="Nome"
+      [(ngModel)]="cliente.nome"
+      required
+    ></po-input>
+    
+    <po-divider p-label="Endereço"></po-divider>
+    
+    <po-input
+      name="logradouro"
+      p-label="Logradouro"
+      [(ngModel)]="cliente.endereco.logradouro"
+      required
+    ></po-input>
+    
+    <po-input
+      name="bairro"
+      p-label="Bairro"
+      [(ngModel)]="cliente.endereco.bairro"
+      required
+    ></po-input>
+    
+    <po-input
+      name="numero"
+      p-label="Número"
+      [(ngModel)]="cliente.endereco.numero"
+      required
+    ></po-input>
+    
+    <po-input
+      name="cidade"
+      p-label="Cidade"
+      [(ngModel)]="cliente.endereco.cidade"
+      required
+    ></po-input>
+    
+    <po-input
+      name="estado"
+      p-label="Estado"
+      [(ngModel)]="cliente.endereco.estado"
+      required
+    ></po-input>
+    
+    <po-divider p-label="Telefones"></po-divider>
+    
+    <po-container>
+      <div *ngFor="let telefone of cliente.telefones; let i = index">
         <po-input
-          name="logradouro"
-          [(ngModel)]="cliente.endereco.logradouro"
-          p-label="Logradouro"
-          p-required
-          p-placeholder="Digite o logradouro"
+          name="telefone{{i}}"
+          p-label="Telefone"
+          [(ngModel)]="telefone.telefone"
+          required
         ></po-input>
-
-        <po-input
-          name="bairro"
-          [(ngModel)]="cliente.endereco.bairro"
-          p-label="Bairro"
-          p-required
-          p-placeholder="Digite o bairro"
-        ></po-input>
-
-        <po-input
-          name="numero"
-          [(ngModel)]="cliente.endereco.numero"
-          p-label="Número"
-          p-required
-          p-placeholder="Digite o número"
-        ></po-input>
-
-        <po-input
-          name="cidade"
-          [(ngModel)]="cliente.endereco.cidade"
-          p-label="Cidade"
-          p-required
-          p-placeholder="Digite a cidade"
-        ></po-input>
-
-        <po-input
-          name="estado"
-          [(ngModel)]="cliente.endereco.estado"
-          p-label="Estado"
-          p-required
-          p-placeholder="Digite o estado"
-        ></po-input>
-      </div>
-
-      <div class="po-fieldset" p-title="Telefones">
-        <div *ngFor="let telefone of cliente.telefones; let i = index">
-          <po-input
-            name="telefone{{i}}"
-            [(ngModel)]="telefone.telefone"
-            p-label="Telefone"
-            p-required
-            p-placeholder="Digite o telefone"
-          ></po-input>
-          <po-button
-            p-label="Remover"
-            p-type="button"
-            (p-click)="removerTelefone(i)"
-          ></po-button>
-        </div>
+        
         <po-button
-          p-label="Adicionar Telefone"
-          p-type="button"
-          (p-click)="adicionarTelefone()"
+          p-label="Remover"
+          p-type="danger"
+          (p-click)="removerTelefone(i)"
+          *ngIf="cliente.telefones.length > 1"
         ></po-button>
       </div>
-
+      
       <po-button
-        p-label="Cadastrar"
-        p-type="submit"
-        (p-click)="cadastrar()"
+        p-label="Adicionar Telefone"
+        p-type="primary"
+        (p-click)="adicionarTelefone()"
       ></po-button>
-    </form>
-  </po-page-default>
-</div>
+    </po-container>
+    
+    <po-divider></po-divider>
+    
+    <po-button
+      p-label="Cadastrar"
+      p-type="submit"
+      [p-disabled]="!cadastroForm.form.valid"
+    ></po-button>
+  </form>
+</po-page-default>
