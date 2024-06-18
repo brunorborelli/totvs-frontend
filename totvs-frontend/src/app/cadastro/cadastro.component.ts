@@ -11,18 +11,35 @@ import { PoFieldModule, PoButtonModule, PoPageModule } from '@po-ui/ng-component
     FormsModule,
     PoFieldModule,
     PoButtonModule,
-    PoPageModule],
+    PoPageModule
+  ],
   templateUrl: './cadastro.component.html',
-  styleUrl: './cadastro.component.css'
+  styleUrls: ['./cadastro.component.css']
 })
 export class CadastroComponent {
-  usuario = {
+  cliente = {
     nome: '',
-    endereco: '',
-    telefone: ''
+    endereco: {
+      logradouro: '',
+      bairro: '',
+      numero: '',
+      cidade: '',
+      estado: ''
+    },
+    telefones: [
+      { telefone: '' }
+    ]
   };
 
+  adicionarTelefone() {
+    this.cliente.telefones.push({ telefone: '' });
+  }
+
+  removerTelefone(index: number) {
+    this.cliente.telefones.splice(index, 1);
+  }
+
   cadastrar() {
-    console.log('Usuário cadastrado:', this.usuario);
+    console.log('Cliente cadastrado:', this.cliente);
   }
 }

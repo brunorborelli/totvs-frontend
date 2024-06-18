@@ -1,0 +1,12 @@
+.po-container {
+    padding: 16px;
+  }
+  
+  .po-fieldset {
+    margin-bottom: 16px;
+  }
+  
+  .po-fieldset > * {
+    margin-bottom: 8px;
+  }
+  
