@@ -1,20 +1,21 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { PoFieldModule, PoButtonModule, PoPageModule } from '@po-ui/ng-components';
+import { FormsModule } from '@angular/forms';
+import { PoPageModule, PoFieldModule, PoButtonModule } from '@po-ui/ng-components';
+import { ClienteService } from '../cliente.service'; 
 
 @Component({
   selector: 'app-cadastro',
   standalone: true,
+  templateUrl: './cadastro.component.html',
+  styleUrls: ['./cadastro.component.css'],
   imports: [
     CommonModule,
     FormsModule,
+    PoPageModule,
     PoFieldModule,
-    PoButtonModule,
-    PoPageModule
-  ],
-  templateUrl: './cadastro.component.html',
-  styleUrls: ['./cadastro.component.css']
+    PoButtonModule
+  ]
 })
 export class CadastroComponent {
   cliente = {
@@ -31,6 +32,8 @@ export class CadastroComponent {
     ]
   };
 
+  constructor(private clienteService: ClienteService) {}
+
   adicionarTelefone() {
     this.cliente.telefones.push({ telefone: '' });
   }
@@ -40,6 +43,29 @@ export class CadastroComponent {
   }
 
   cadastrar() {
-    console.log('Cliente cadastrado:', this.cliente);
+    this.clienteService.cadastrarCliente(this.cliente).subscribe(
+      (response) => {
+        console.log('Cliente cadastrado com sucesso!', response);
+        this.limparFormulario();
+      },
+      (error) => {
+        console.error('Erro ao cadastrar cliente:', error);
+      }
+    );
+  }
+  private limparFormulario() {
+    this.cliente = {
+      nome: '',
+      endereco: {
+        logradouro: '',
+        bairro: '',
+        numero: '',
+        cidade: '',
+        estado: ''
+      },
+      telefones: [
+        { telefone: '' }
+      ]
+    };
   }
 }
