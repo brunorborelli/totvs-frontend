@@ -1,0 +1,26 @@
+nav {
+    display: flex; /* para alinhar os elementos na mesma linha */
+    justify-content: center; /* centraliza os itens horizontalmente */
+    background-color: #f0f0f0; /* cor de fundo do menu */
+    padding: 10px; /* espaçamento interno */
+  }
+  
+  nav a {
+    text-decoration: none; /* remove o sublinhado padrão dos links */
+    color: #333; /* cor do texto dos links */
+    padding: 10px 20px; /* espaçamento interno dos links */
+    margin: 0 5px; /* margem externa entre os links */
+    border-radius: 5px; /* borda arredondada nos cantos */
+    background-color: #ddd; /* cor de fundo dos links */
+  }
+  
+  nav a:hover {
+    background-color: #ccc; /* cor de fundo ao passar o mouse */
+  }
+  
+  nav div {
+    width: 2px; /* largura da divisória */
+    background-color: #999; /* cor da divisória */
+    margin: 0 10px; /* margem externa da divisória */
+  }
+  
