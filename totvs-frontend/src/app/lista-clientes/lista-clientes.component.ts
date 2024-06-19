@@ -18,11 +18,7 @@ export class ListaClientesComponent implements OnInit {
     { property: 'endereco.bairro', label: 'Bairro' },
     { property: 'endereco.numero', label: 'Número' },
     { property: 'endereco.cidade', label: 'Cidade' },
-    { property: 'endereco.estado', label: 'Estado' },
-    { 
-      property: 'telefones.telefone', 
-      label: 'Telefones'
-    }
+    { property: 'endereco.estado', label: 'Estado' }
   ];
 
   constructor(private clienteService: ClienteService) {}
