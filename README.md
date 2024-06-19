@@ -21,5 +21,6 @@ Instruções:
 
 3- Clone o projeto pelo repositorio em uma pasta de sua escolha.
   * Abra pasta escolhida pelo VScode e depois acesse o diretorio do frontend, com o comando "cd totvs-frontend"
+  * Rode o comando ```npm install```
   * Inicie o projeto com a comando ```ng s```
   * Acesse a pagina **http://localhost:4200**
