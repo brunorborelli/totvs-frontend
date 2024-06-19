@@ -6,12 +6,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ClienteService {
-
   private apiUrl = 'http://localhost:8080/api/cliente';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  cadastrarCliente(cliente: any): Observable<any> {
+  getClientes(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
+  }
+
+   cadastrarCliente(cliente: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, cliente);
   }
 }
