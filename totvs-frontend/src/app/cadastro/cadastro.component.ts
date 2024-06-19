@@ -34,6 +34,8 @@ export class CadastroComponent {
     ]
   };
 
+  mensagemErro: string = ''; 
+
   constructor(private clienteService: ClienteService) {}
 
   adicionarTelefone() {
@@ -49,12 +51,15 @@ export class CadastroComponent {
       (response) => {
         console.log('Cliente cadastrado com sucesso!', response);
         this.limparFormulario();
+        this.mensagemErro = ''; 
       },
       (error) => {
         console.error('Erro ao cadastrar cliente:', error);
+        this.mensagemErro = error.error.message || 'Erro ao cadastrar cliente'; 
       }
     );
   }
+
   private limparFormulario() {
     this.cliente = {
       nome: '',

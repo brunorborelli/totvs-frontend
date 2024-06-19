@@ -1,4 +1,3 @@
-
 <po-page-default p-title="Cadastro de Cliente">
   <form #cadastroForm="ngForm" (ngSubmit)="cadastrar()" class="form-container">
     <po-input
@@ -85,5 +84,10 @@
       p-type="submit"
       (p-click)="cadastrar()"
     ></po-button>
+
+    <!-- Exibe a mensagem de erro, se houver -->
+    <div *ngIf="mensagemErro" class="error-message">
+      {{ mensagemErro }}
+    </div>
   </form>
 </po-page-default>
