@@ -83,7 +83,7 @@
     <po-button
       p-label="Cadastrar"
       p-type="submit"
-      [p-disabled]="!cadastroForm.form.valid"
+      (p-click)="cadastrar()"
     ></po-button>
   </form>
 </po-page-default>
